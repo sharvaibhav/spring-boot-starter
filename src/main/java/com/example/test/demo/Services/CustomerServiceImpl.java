@@ -20,11 +20,23 @@ public class CustomerServiceImpl implements CustomerService {
   }
 
   @Override
+  public Customer getCustomerWithName(String name) {
+    List<Customer> allByName = customerRepository.findAllByName(name);
+    return allByName.get(0);
+  }
+
+
+  @Override
   public List<Customer> getAllCustomers() {
     ArrayList<Customer> customerDtos = new ArrayList<>();
     List<Customer> allCustomers = customerRepository.findAllByName("Gagan");
     customerDtos.addAll(allCustomers);
     return customerDtos;
 
+  }
+
+  @Override
+  public Customer createCustomer(Customer customer) {
+    return customerRepository.save(customer);
   }
 }

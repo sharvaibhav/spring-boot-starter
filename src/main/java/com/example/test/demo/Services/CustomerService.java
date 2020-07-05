@@ -7,6 +7,9 @@ public interface CustomerService {
 
   public Customer getCustomerWithId(int customerId);
 
+  public Customer getCustomerWithName(String name);
+
   public List<Customer> getAllCustomers();
 
+  public Customer createCustomer(Customer customer);
 }
